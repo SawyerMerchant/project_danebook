@@ -1,0 +1,205 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*******************/
+/* Colors */
+/*******************/
+
+$main-blue: #000000;
+$light-blue: #9FC5F8;
+$gray: #666; 
+$sign-up-button-color: #009E0F;
+
+/*******************/
+/* Home Nav Bar */
+/*******************/
+
+.navbar {
+  background-color: $main-blue; 
+  height: 100px; 
+
+  .navbar-header {
+    margin-left: 30px;
+
+    .navbar-brand { // "Danebook" in navbar 
+      color: white; 
+      font-size: 4em;
+      font-weight: bold; 
+      letter-spacing: 2px;
+      padding: 0 15px;
+      height: 100px; 
+      line-height: 100px;
+
+      &:hover, &:focus, &:active { // prevent from changing color
+        color: white; 
+      }
+
+      @media (max-width: 768px) {
+        margin-left: -30px;
+      }
+    }
+
+    .navbar-toggle { // 3-line button on smaller screens
+      margin-top: 28px; // used math to vertically center
+      height: 44px; // larger than default, looks better with taller navbar
+      border-color: white; 
+
+      .icon-bar { // the three lines on the small-screen toggle button
+        background-color: white; 
+      }
+
+      &:hover, &:focus, &:active { // toggle button changes color on click/hover
+        border-color: $main-blue; 
+        background-color: white; 
+
+        .icon-bar {
+          background-color: $main-blue; 
+        }
+      }
+    }
+  }
+
+
+  form { // sign in
+    position: absolute; 
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%); 
+
+
+    .form-group { // label + text field
+      display: inline-block;
+      margin-right: 20px;
+      width: 228px;
+
+      label {
+        color: white; 
+        font-size: 1.2em;
+      }
+    }
+
+    button { // "Log In"
+      background-color: $light-blue; 
+      border-radius: 0px;
+      border: none;
+      box-shadow: 2px 2px 1px 1px black;
+      margin-bottom: 5px; /* reposition button to look more centered */
+    }
+
+    @media screen and (max-width: 768px) { // mobile screens
+      top: 100%;
+      right: 50%;
+      transform: translateY(0); 
+      transform: translateX(50%);
+      width: 110%;
+      background: $main-blue;
+      text-align: center;
+    }
+
+  }
+}
+
+/*******************/
+/* Main Content */
+/*******************/
+
+main { // everything below navbar
+  margin-top: 100px; // same as navbar height
+}
+
+#info { // left content (heading + bullet points)
+  width: 653px; /* min width so that bullets do not exceed one line each */
+  margin: 50px auto; // mobile screens
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  li {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    color: $gray; 
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1380px) { 
+    float: left;
+    margin-top: 100px;
+    margin-left: 60px;
+  }
+
+  @media screen and (min-width: 1580px) { 
+    transform: scale(1.1);
+    margin-left: 180px;
+  }
+
+  @media screen and (min-width: 1720px) {
+    transform: scale(1.1);
+    margin-left: 270px;
+  }
+}
+
+#sign-up { // sign up form 
+  width: 620px;
+  margin: 50px auto;
+
+  h1 { // Sign Up
+    font-size: 3.2em; 
+    font-weight: bold; 
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  .form-group { // all forms 
+    margin-bottom: 20px;
+  }
+
+  input[type=text], input[type=email], input[type=password] { // text inputs
+    font-size: 1.2em;
+  }
+
+  label[for=birthday] { // "Birthday"
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  .btn-group { // "Month", "Day", "Year" dropdowns
+    margin-right: 20px;
+  }
+
+  .dropdown-menu { // scroll through dropdown items
+    height: 150px;
+    overflow-x: hidden;
+  }
+
+  input[type=radio] { // gender radio buttons
+    margin-right: 6px;
+  }
+
+  .gender { // "Female" and "Male"
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
+  #sign-up-button { // big sign-up button 
+    width: 100%;
+    background-color: $sign-up-button-color; 
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 2px black;
+  }
+
+  @media screen and (min-width: 1380px) { 
+    float: right;
+    width: 500px;
+    margin-top: 20px;
+    margin-right: 80px;
+  }
+}

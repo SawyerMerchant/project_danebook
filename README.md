@@ -2,10 +2,10 @@
 
 [Pramod Jacob](https://github.com/domarp-j)
 
-## Description
+### Description
 
 Making a fun little social networking app!
 
-## Source
+### Source
 
 [Viking Code School](https://www.vikingcodeschool.com/)
