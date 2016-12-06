@@ -12,6 +12,7 @@ $sign-up-green: #009E0F;
 $gray-6: #666;
 $gray-8: #888;
 $gray-E: #EEE;
+$gray-BF: #BFBFBF;
 
 /***************************************************************************************/
 /* Mixins */
@@ -28,7 +29,7 @@ $gray-E: #EEE;
 /***************************************************************************************/
 
 /********************************************/
-/* Home Nav Bar */
+/* Home Navigation Bar */
 /********************************************/
 
 .home-navbar {
@@ -221,7 +222,7 @@ main { // everything below navbar
 }
 
 /***************************************************************************************/
-/* NAVIGATION BAR STYLES */
+/* Main Navigation Bar */
 /***************************************************************************************/
 
 .navbar-main { // entire top bar
@@ -231,7 +232,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* LOGO + BRAND */
+/* Logo & Brand */
 /********************************************/
 
 .navbar-header { // logo container + brand
@@ -269,7 +270,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* USER SEARCH BAR */
+/* User Search Bar */
 /********************************************/
 
 .navbar-user-search {
@@ -285,7 +286,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* CURRENT USER */
+/* Current User */
 /********************************************/
 
 .navbar-current-user {
@@ -305,11 +306,11 @@ main { // everything below navbar
 }
 
 /***************************************************************************************/
-/* TOP SECTION */
+/* Top Section */
 /***************************************************************************************/
 
 /********************************************/
-/* COVER PHOTO */
+/* Cover Photo */
 /********************************************/
 
 .cover-photo { // cover photo container
@@ -325,7 +326,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* PERSONAL PHOTO */
+/* Personal Photo */
 /********************************************/
 
 .personal-photo { // personal photo container
@@ -352,7 +353,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* PROFILE NAME */
+/* Profile Name */
 /********************************************/
 
 .profile-name { // name
@@ -376,7 +377,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* MIDDLE NAVIGATION BAR */
+/* Middle Navigation Bar */
 /********************************************/
 
 .navbar-mid {
@@ -441,11 +442,11 @@ main { // everything below navbar
 }
 
 /***************************************************************************************/
-/* TIMELINE */
+/* Timeline */
 /***************************************************************************************/
 
 /********************************************/
-/* TIMELINE ITEMS  */
+/* Timeline Items  */
 /********************************************/
 
 .timeline-item {
@@ -540,7 +541,7 @@ main { // everything below navbar
 }
 
 /********************************************/
-/* TIMELINE POSTS */
+/* Timeline Posts */
 /********************************************/
 
 .timeline-post { // existing post
@@ -706,4 +707,93 @@ main { // everything below navbar
     margin-right: 30px;
   }
 
+}
+
+/***************************************************************************************/
+/* FRIENDS */
+/***************************************************************************************/
+
+.friends-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.friends-header { 
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, vertically centers
+  }
+
+  a {
+    position: absolute;
+    top: 50%; 
+    right: 15px;
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px black;
+  }
+}
+
+.friends-container {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px; // top left-right bottom 
+}
+
+.friend {
+  border: 2px solid $gray-E; 
+  padding: 15px;
+  position: relative; 
+}
+
+.friend-photo { 
+  display: inline-block;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  overflow: hidden; 
+  float: left;
+
+  img { 
+    width: 100%;
+  }
+}
+
+.friend-info {
+  position: absolute; 
+  top: 50%; 
+  left: 130px; // friend-photo width + 15px left & right padding
+  transform: translateY(-50%);
+}
+
+.friend-name {
+  color: $main-blue; 
+  text-decoration: underline;
+  font-size: 1.3em;
+}
+
+.friend-count {
+  color: $gray-8;
+  font-size: 1.3em;
+}
+
+.unfriend-button {
+  display: inline-block; 
+  border-radius: 0;
+  background-color: $gray-BF;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 1px black;
+  position: absolute; 
+  right: 15px; 
+  top: 50%; 
+  transform: translateY(-50%);
 }
