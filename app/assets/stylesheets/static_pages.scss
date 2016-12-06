@@ -710,7 +710,7 @@ main { // everything below navbar
 }
 
 /***************************************************************************************/
-/* FRIENDS */
+/* Friends */
 /***************************************************************************************/
 
 .friends-main {
@@ -797,3 +797,69 @@ main { // everything below navbar
   top: 50%; 
   transform: translateY(-50%);
 }
+
+/*******************************************************************/
+/* About */
+/*******************************************************************/
+
+.about-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.about-header {
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, to vertically center
+  }
+
+  a {
+    position: absolute;
+    top: 50%; 
+    right: 15px;
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px black;
+  }
+}
+
+.about-info {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 2em;
+  }
+
+  .basic-info {
+    margin-bottom: 45px;
+  }
+
+  dt, dd {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+
+  dt {
+    width: 30%;
+  }
+
+  dd {
+    width: 56%;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+}
+
