@@ -2,20 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*******************/
+/********************************************/
 /* Colors */
-/*******************/
+/********************************************/
 
-$main-blue: #000000;
+$main-blue: #2B78E4;
 $light-blue: #9FC5F8;
-$gray: #666; 
-$sign-up-button-color: #009E0F;
+$sign-up-green: #009E0F;
+$gray-6: #666;
+$gray-8: #888;
+$gray-E: #EEE;
 
-/*******************/
+/********************************************/
+/* MIXINS */
+/********************************************/
+
+@mixin transform($xdist, $ydist) { // for browser compatibility
+    -webkit-transform: translate($xdist, $ydist);
+        -ms-transform: translate($xdist, $ydist);
+            transform: translate($xdist, $ydist);
+}
+
+/***************************************************************************************/
+/* HOME PAGE */
+/***************************************************************************************/
+
+/********************************************/
 /* Home Nav Bar */
-/*******************/
+/********************************************/
 
-.navbar {
+.home-navbar {
   background-color: $main-blue; 
   height: 100px; 
 
@@ -100,9 +116,9 @@ $sign-up-button-color: #009E0F;
   }
 }
 
-/*******************/
-/* Main Content */
-/*******************/
+/********************************************/
+/* Home Page Main Content */
+/********************************************/
 
 main { // everything below navbar
   margin-top: 100px; // same as navbar height
@@ -122,7 +138,7 @@ main { // everything below navbar
   li {
     font-size: 1.5em;
     letter-spacing: 2px;
-    color: $gray; 
+    color: $gray-6; 
     margin-bottom: 20px;
   }
 
@@ -187,7 +203,7 @@ main { // everything below navbar
 
   #sign-up-button { // big sign-up button 
     width: 100%;
-    background-color: $sign-up-button-color; 
+    background-color: $sign-up-green; 
     color: white;
     font-size: 1.5em;
     font-weight: bold;
@@ -202,4 +218,357 @@ main { // everything below navbar
     margin-top: 20px;
     margin-right: 80px;
   }
+}
+
+/***************************************************************************************/
+/* NAVIGATION BAR STYLES */
+/***************************************************************************************/
+
+.navbar-main { // entire top bar
+  background-color: $main-blue;
+  border: none;
+  font-family: "Roboto", sans-serif;
+}
+
+/********************************************/
+/* LOGO + BRAND */
+/********************************************/
+
+.navbar-header { // logo container + brand
+  display: inline-block;
+}
+
+.navbar-logo { // logo container
+  float: left;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 5px; /* vertical centering */
+  margin-right: 10px;
+
+  img { // logo (circular Denmark flag)
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar-header .navbar-brand { // brand ("Danebook")
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+
+  &:hover, &:focus, &:active {
+    color: white;
+  }
+}
+
+/********************************************/
+/* USER SEARCH BAR */
+/********************************************/
+
+.navbar-user-search {
+  position: relative; 
+  height: 50px;
+
+  input {
+    position: absolute; 
+    top: 50%;
+    @include transform(0,-50%); 
+    font-size: 1.3em;
+  }
+}
+
+/********************************************/
+/* CURRENT USER */
+/********************************************/
+
+.navbar-current-user {
+  line-height: 50px;
+  border: none;
+  text-align: right;
+
+  a {
+    color: white; 
+    font-size: 1.5em;
+    font-weight: bold;
+
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+
+/***************************************************************************************/
+/* TIMELINE */
+/***************************************************************************************/
+
+/********************************************/
+/* TIMELINE ITEMS  */
+/********************************************/
+
+.timeline-item {
+  margin-bottom: 15px; 
+}
+
+.timeline-heading {
+  background-color: $gray-E;
+  border: 2px solid $gray-E;
+  text-align: center; 
+  height: 35px;
+
+  h1 {
+    padding: 4px 0; // vertical centering
+    margin: 0;
+    font-size: 1.5em;
+  } 
+}
+
+.timeline-content-container {
+  border: 2px solid $gray-E;
+  padding: 15px;  
+}
+
+.timeline-content {
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+  overflow: hidden; 
+
+  img { 
+    width: 100%;
+  } 
+}
+
+.timeline-footer {
+  text-align: center;
+  padding-top: 15px;
+
+  a {
+    color: $main-blue;
+    text-decoration: underline;   
+  }
+}
+
+.timeline-about-info {
+  border: 2px solid $gray-E;
+  padding: 10px 30px;
+
+  dl {
+    margin: 10px;
+  }
+
+  dt {
+    display: inline;
+  }
+
+  dd {
+    display: inline;
+  }
+}
+
+.timeline-friend-name {
+  color: $main-blue;
+  text-decoration: underline;   
+}
+
+.make-post-content {
+  border: 2px solid $gray-E;
+  padding: 15px;
+}
+
+.make-post-submit {
+  background-color: $gray-E;
+  text-align: right;
+  height: 45px;
+  position: relative; 
+
+  a {
+    position: absolute; 
+    top: 50%; 
+    right: 15px; 
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    width: 75px;
+    font-size: 1.1em;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 3px 0;
+    margin-right: 15px;
+  }
+}
+
+/********************************************/
+/* TIMELINE POSTS */
+/********************************************/
+
+.timeline-post { // existing post
+  border: 2px solid $gray-E;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.poster-photo { // container of poster's photo
+  display: inline-block;
+  background-color: white;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  overflow: hidden; // only show portion if image is large
+  margin: 7px;
+
+  img { // poster's photo
+    width: 100%;
+  }
+}
+
+.poster-info { //
+  display: inline-block;
+  margin: 0; 
+  padding: 0;
+  position: absolute;
+  top: 7px; // same as .poster-photo margin
+
+  a {
+    padding: 0;
+    margin: 0; 
+    color: $main-blue;
+    text-decoration: underline;
+  }
+
+  p {
+    color: $gray-8;
+  }
+}
+
+.post-content {
+  padding: 0 15px;
+}
+
+.post-interaction {
+  background-color: $gray-E;
+  height: 40px;
+  padding: 3px 0; // vertically center
+
+  a {
+    color: $main-blue;
+    text-decoration: underline;
+  }
+
+  .delete-button {
+    float: right;
+  }
+}
+
+.post-likes { 
+  background-color: $gray-E;
+  height: 40px;
+  padding: 3px 0; // vertically center
+  padding-left: 12px;
+
+  a {
+    color: $main-blue; 
+    text-decoration: underline;
+  }
+}
+
+.post-comments {
+  border-top: 1px solid #BBB;
+  background-color: $gray-E;
+  position: relative;
+}
+
+.comment-poster-photo { // container of comment poster's photo
+  display: inline-block;
+  background-color: white;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  overflow: hidden; // only show portion if image is large
+  margin: 10px;
+  float: left;
+
+  img { // poster's photo
+    width: 100%;
+  }
+}
+
+.comment-poster-info {
+  display: inline-block;
+  margin: 0; 
+  padding: 0;
+  position: relative; 
+  top: 10px;
+
+  a {
+    color: $main-blue;
+    text-decoration: underline;
+  }
+
+  p {
+    display: inline-block;
+    color: $gray-8;
+  }
+}
+
+.comment-post-content {
+  display: inline-block;
+  padding-right: 15px; // same value as .post-content padding
+  margin-top: -50px; // shift up 
+  margin-left: 95px; // width of comment photo, with 10px as L&R margins
+}
+
+.comment-post-likes {
+  margin-left: 95px; // width of comment photo, with 10px as L&R margins
+
+  a {
+    display: inline-block;
+    color: $main-blue;
+    text-decoration: underline;
+    padding: 0;
+    padding-right: 15px;
+  }
+
+  .delete-button {
+    float: right;
+  }
+
+  p {
+    display: inline-block; 
+    color: $gray-8;
+  }
+}
+
+.comment-entry {
+  padding: 15px; 
+}
+
+.comment-submission {
+  height: 50px;
+
+  .btn-link {
+    display: inline-block;
+    color: $main-blue;
+    text-decoration: underline;
+    padding: 0;
+    margin-left: 30px;
+  }
+
+  .btn-primary {
+    background-color: $main-blue;
+    border-radius: 0px;
+    width: 75px;
+    font-size: 1.1em;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 3px 0;
+    float: right;
+    margin-right: 30px;
+  }
+
 }
