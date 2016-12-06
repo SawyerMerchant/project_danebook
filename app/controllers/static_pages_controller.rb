@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @home_page = true
+    render :layout => "application"
   end
 
   def timeline
