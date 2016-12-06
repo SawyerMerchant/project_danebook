@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/********************************************/
+/***************************************************************************************/
 /* Colors */
-/********************************************/
+/***************************************************************************************/
 
 $main-blue: #2B78E4;
 $light-blue: #9FC5F8;
@@ -13,9 +13,9 @@ $gray-6: #666;
 $gray-8: #888;
 $gray-E: #EEE;
 
-/********************************************/
-/* MIXINS */
-/********************************************/
+/***************************************************************************************/
+/* Mixins */
+/***************************************************************************************/
 
 @mixin transform($xdist, $ydist) { // for browser compatibility
     -webkit-transform: translate($xdist, $ydist);
@@ -24,7 +24,7 @@ $gray-E: #EEE;
 }
 
 /***************************************************************************************/
-/* HOME PAGE */
+/* Home Page */
 /***************************************************************************************/
 
 /********************************************/
@@ -304,6 +304,141 @@ main { // everything below navbar
   }
 }
 
+/***************************************************************************************/
+/* TOP SECTION */
+/***************************************************************************************/
+
+/********************************************/
+/* COVER PHOTO */
+/********************************************/
+
+.cover-photo { // cover photo container
+  width: 100%;
+  height: 400px;
+  overflow-y: auto; // scroll up/down image if large
+
+  img { // cover photo itself
+    width: 100%;
+    min-width: 768px;
+  }
+
+}
+
+/********************************************/
+/* PERSONAL PHOTO */
+/********************************************/
+
+.personal-photo { // personal photo container
+  background-color: white;
+  width: 220px;
+  height: 220px;
+  position: relative; 
+  left: 15px;
+  bottom: 190px;
+  text-align: center;
+  overflow: hidden; // only show portion if image is large
+  z-index: 1; // place profile pic in front of middle nav bar
+
+  img { // personal photo itself
+    width: 100%;
+  }
+
+  @media (max-width: 992px) {
+    width: 180px; 
+    height: 180px;
+    left: 0;
+    bottom: 220px;
+  }
+}
+
+/********************************************/
+/* PROFILE NAME */
+/********************************************/
+
+.profile-name { // name
+  position: relative; 
+
+  h1 {
+    padding: 0; 
+    margin: 0;
+    color: white;
+    position: absolute; 
+    top: -270px;
+    left: 250px; // personal photo size + margins
+    z-index: 1;
+
+    @media (max-width: 992px) {
+      font-size: 2em;
+      top: -435px;
+      left: 15px;
+    }
+  }
+}
+
+/********************************************/
+/* MIDDLE NAVIGATION BAR */
+/********************************************/
+
+.navbar-mid {
+  margin-top: -220px; // height of profile pic
+  background-color: white;
+  border-radius: 0px;
+}
+
+.navbar-mid .navbar-mid-buttons {
+  margin-left: 250px;
+  height: 100%;
+
+  @media (max-width: 992px) {
+    margin-left: 0;
+  }
+}
+
+.navbar-mid .navbar-profile-buttons {
+  display: inline-block;
+
+  @media (max-width: 728px) { // collapse into single col of buttons
+    display: block;
+  }
+
+  a {
+    font-size: 1.3em;
+    min-width: 140px;
+    border-radius: 0px;
+    height: 50px; 
+    padding: 10px 0;
+
+    @media (max-width: 728px) {
+      width: 100%;
+    }
+  } 
+
+  a[disabled] {
+    background-color: $gray-E; 
+  }
+}
+
+.navbar-mid .navbar-edit-button {
+  display: inline-block;
+
+  @media (min-width: 729px) { // keep to the right on large screens
+    float: right; 
+  }
+
+  @media (max-width: 728px) { // drop below profile buttons on small screens
+    display: block;
+    text-align: center; 
+  }
+
+  a {
+    font-size: 1.3em;
+    text-decoration: underline;
+    color: $main-blue;
+    height: 50px; 
+    padding: 10px 0;
+    margin-right: 15px;
+  }
+}
 
 /***************************************************************************************/
 /* TIMELINE */
