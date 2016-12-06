@@ -13,6 +13,7 @@ $gray-6: #666;
 $gray-8: #888;
 $gray-E: #EEE;
 $gray-BF: #BFBFBF;
+$gray-8A: #8A8A8A;
 
 /***************************************************************************************/
 /* Mixins */
@@ -798,9 +799,9 @@ main { // everything below navbar
   transform: translateY(-50%);
 }
 
-/*******************************************************************/
+/***************************************************************************************/
 /* About */
-/*******************************************************************/
+/***************************************************************************************/
 
 .about-main {
   font-family: "Roboto", sans-serif;
@@ -861,5 +862,72 @@ main { // everything below navbar
   p {
     font-size: 1.1em;
   }
+}
+
+/***************************************************************************************/
+/* PHOTOS */
+/***************************************************************************************/
+
+.photos-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.photos-header { 
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, vertically centers
+  }
+
+  a {
+    position: absolute;
+    top: 50%; 
+    right: 15px;
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px black;
+  }
+}
+
+.photos-container {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px; // top left-right bottom 
+}
+
+.photo {
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+  overflow: hidden; 
+
+  img { 
+    width: 100%;
+  } 
+
+  &:hover { // show date on hover
+    .photo-date { display: block; }
+  }
+}
+
+.photo-date {
+  display: none; // normally hidden, unless hovered over
+  background-color: $gray-8A; 
+  color: white; 
+  border: none; 
+  margin: 0;
+  width: 100%;
+  height: 40px; 
+  line-height: 40px; // same as height, vertically centerss
+  position: relative; 
+  margin-top: -40px; // same as height & line-height
 }
 
