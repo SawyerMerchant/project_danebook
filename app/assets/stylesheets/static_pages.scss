@@ -865,6 +865,77 @@ main { // everything below navbar
 }
 
 /***************************************************************************************/
+/* About Edit */
+/***************************************************************************************/
+
+.about-edit-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.about-header {
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, to vertically center
+  }
+}
+
+.about-info {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px 45px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 2em;
+  }
+
+  .basic-info {
+    margin-bottom: 45px;
+  }
+
+  dt, dd {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+
+  dt {
+    width: 30%;
+  }
+
+  dd {
+    width: 56%;
+  }
+}
+
+.save-button-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 45px; 
+
+  a {
+    background-color: $main-blue;
+    width: 50%;
+    height: 60px;
+    line-height: 50px;
+    font-size: 2.2em;
+    padding: 5px 0;
+    border-radius: 0px; 
+    box-shadow: 2px 2px 1px 1px black;
+  }
+}
+
+
+
+
+/***************************************************************************************/
 /* PHOTOS */
 /***************************************************************************************/
 
