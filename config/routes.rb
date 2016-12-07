@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   root 'users#new'
-  resources :users, :only => [:new, :create]
+  resources :users, :only => [:new, :create, :show]
   resource :session, :only => [:new, :create, :destroy]
 
-  get '/login' => 'session#new'
-  get '/logout' => 'session#destroy'
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
 
   get '/timeline' => 'static_pages#timeline'
   get '/friends' => 'static_pages#friends'

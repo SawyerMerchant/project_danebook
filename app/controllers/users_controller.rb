@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome!"
       redirect_to @user
     else
+      fail
       flash.now[:error] = "Could not create a new user."
       render :new
     end
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
           :email,
           :password,
           :password_confirmation,
-          :birthday, 
+          :birthday,
           :gender
         )
     end

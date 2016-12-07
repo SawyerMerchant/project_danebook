@@ -33,6 +33,7 @@
         <!--Main Nav Bar-->
         <%= render "shared/top_section" %>
     <% end %>
+    <%= render 'shared/flash_messages' if !flash.empty? %>
     <%= yield %>
   </body>
 
