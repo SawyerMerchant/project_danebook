@@ -1,0 +1,33 @@
+class UsersController < ApplicationController
+
+  skip_before_action :require_login, :only => [:new, :create]
+
+  def new
+  end
+
+  def create
+    @user = User.new(strong_params)
+    
+    if @user.save 
+      sign_in(@user)
+      flash[:success] = "Welcome!"
+      redirect_to @user
+    else
+      flash.now[:error] = "Could not create a new user."
+      render :new
+    end
+  end
+
+  private
+
+    def strong_params 
+      require(:user).permit(
+          :first_name,
+          :last_name, 
+          :email, 
+          :password, 
+          :password_confirmation
+        )
+    end
+
+end

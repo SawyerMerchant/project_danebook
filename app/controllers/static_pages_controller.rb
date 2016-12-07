@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
 
+  skip_before_action :require_login, :only => [:home]
+
   def home
     @home_page = true
     render :layout => "application"
