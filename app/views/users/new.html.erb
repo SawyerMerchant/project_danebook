@@ -241,7 +241,7 @@
         </div>
       </div>
     </form>  -->
-    <%= form_for @user |user_field| %>
+    <%= form_for @user do |user_field| %>
       <%= user_field.text_field :first_name, placeholder: "First Name" %>
 
       <%= user_field.text_field :last_name, placeholder: "Last Name" %>
@@ -253,9 +253,12 @@
       <%= user_field.password_field :password_confirmation, placeholder: "Confirm Password" %>
 
       <%= user_field.label :birthday %>
-      <%= user_field.date_select :birthday %>
+      <%= user_field.date_select :birthday, start_year: 1900 %>
 
+      <%= user_field.radio_button :gender, "m" %>Male
+      <%= user_field.radio_button :gender, "f" %>Female
 
+      <%= user_field.submit %>
 
     <% end %>
   </div>

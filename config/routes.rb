@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'static_pages#home'
-
+  root 'users#new'
+  resources :users, :only => [:new, :create]
   resource :session, :only => [:new, :create, :destroy]
 
   get '/login' => 'session#new'

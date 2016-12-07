@@ -3,12 +3,14 @@ class UsersController < ApplicationController
   skip_before_action :require_login, :only => [:new, :create]
 
   def new
+    @user = User.new
+    @home_page = true
   end
 
   def create
     @user = User.new(strong_params)
-    
-    if @user.save 
+
+    if @user.save
       sign_in(@user)
       flash[:success] = "Welcome!"
       redirect_to @user
@@ -20,12 +22,12 @@ class UsersController < ApplicationController
 
   private
 
-    def strong_params 
+    def strong_params
       require(:user).permit(
           :first_name,
-          :last_name, 
-          :email, 
-          :password, 
+          :last_name,
+          :email,
+          :password,
           :password_confirmation
         )
     end
