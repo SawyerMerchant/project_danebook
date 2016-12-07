@@ -1,0 +1,1004 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/***************************************************************************************/
+/* Colors */
+/***************************************************************************************/
+
+$main-blue: #2B78E4;
+$light-blue: #9FC5F8;
+$sign-up-green: #009E0F;
+$gray-6: #666;
+$gray-8: #888;
+$gray-E: #EEE;
+$gray-BF: #BFBFBF;
+$gray-8A: #8A8A8A;
+
+/***************************************************************************************/
+/* Mixins */
+/***************************************************************************************/
+
+@mixin transform($xdist, $ydist) { // for browser compatibility
+    -webkit-transform: translate($xdist, $ydist);
+        -ms-transform: translate($xdist, $ydist);
+            transform: translate($xdist, $ydist);
+}
+
+/***************************************************************************************/
+/* Home Page */
+/***************************************************************************************/
+
+/********************************************/
+/* Home Navigation Bar */
+/********************************************/
+
+.home-navbar {
+  background-color: $main-blue; 
+  height: 100px; 
+
+  .navbar-header {
+    margin-left: 30px;
+
+    .navbar-brand { // "Danebook" in navbar 
+      color: white; 
+      font-size: 4em;
+      font-weight: bold; 
+      letter-spacing: 2px;
+      padding: 0 15px;
+      height: 100px; 
+      line-height: 100px;
+
+      &:hover, &:focus, &:active { // prevent from changing color
+        color: white; 
+      }
+
+      @media (max-width: 768px) {
+        margin-left: -30px;
+      }
+    }
+
+    .navbar-toggle { // 3-line button on smaller screens
+      margin-top: 28px; // used math to vertically center
+      height: 44px; // larger than default, looks better with taller navbar
+      border-color: white; 
+
+      .icon-bar { // the three lines on the small-screen toggle button
+        background-color: white; 
+      }
+
+      &:hover, &:focus, &:active { // toggle button changes color on click/hover
+        border-color: $main-blue; 
+        background-color: white; 
+
+        .icon-bar {
+          background-color: $main-blue; 
+        }
+      }
+    }
+  }
+
+
+  form { // sign in
+    position: absolute; 
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%); 
+
+
+    .form-group { // label + text field
+      display: inline-block;
+      margin-right: 20px;
+      width: 228px;
+
+      label {
+        color: white; 
+        font-size: 1.2em;
+      }
+    }
+
+    button { // "Log In"
+      background-color: $light-blue; 
+      border-radius: 0px;
+      border: none;
+      box-shadow: 2px 2px 1px 1px black;
+      margin-bottom: 5px; /* reposition button to look more centered */
+    }
+
+    @media screen and (max-width: 768px) { // mobile screens
+      top: 100%;
+      right: 50%;
+      transform: translateY(0); 
+      transform: translateX(50%);
+      width: 110%;
+      background: $main-blue;
+      text-align: center;
+    }
+
+  }
+}
+
+/********************************************/
+/* Home Page Main Content */
+/********************************************/
+
+main { // everything below navbar
+  margin-top: 100px; // same as navbar height
+}
+
+#info { // left content (heading + bullet points)
+  width: 653px; /* min width so that bullets do not exceed one line each */
+  margin: 50px auto; // mobile screens
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  li {
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    color: $gray-6; 
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1380px) { 
+    float: left;
+    margin-top: 100px;
+    margin-left: 60px;
+  }
+
+  @media screen and (min-width: 1580px) { 
+    transform: scale(1.1);
+    margin-left: 180px;
+  }
+
+  @media screen and (min-width: 1720px) {
+    transform: scale(1.1);
+    margin-left: 270px;
+  }
+}
+
+#sign-up { // sign up form 
+  width: 620px;
+  margin: 50px auto;
+
+  h1 { // Sign Up
+    font-size: 3.2em; 
+    font-weight: bold; 
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+
+  .form-group { // all forms 
+    margin-bottom: 20px;
+  }
+
+  input[type=text], input[type=email], input[type=password] { // text inputs
+    font-size: 1.2em;
+  }
+
+  label[for=birthday] { // "Birthday"
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  .btn-group { // "Month", "Day", "Year" dropdowns
+    margin-right: 20px;
+  }
+
+  .dropdown-menu { // scroll through dropdown items
+    height: 150px;
+    overflow-x: hidden;
+  }
+
+  input[type=radio] { // gender radio buttons
+    margin-right: 6px;
+  }
+
+  .gender { // "Female" and "Male"
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
+  #sign-up-button { // big sign-up button 
+    width: 100%;
+    background-color: $sign-up-green; 
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 2px black;
+  }
+
+  @media screen and (min-width: 1380px) { 
+    float: right;
+    width: 500px;
+    margin-top: 20px;
+    margin-right: 80px;
+  }
+}
+
+/***************************************************************************************/
+/* Main Navigation Bar */
+/***************************************************************************************/
+
+.navbar-main { // entire top bar
+  background-color: $main-blue;
+  border: none;
+  font-family: "Roboto", sans-serif;
+}
+
+/********************************************/
+/* Logo & Brand */
+/********************************************/
+
+.navbar-header { // logo container + brand
+  display: inline-block;
+}
+
+.navbar-logo { // logo container
+  float: left;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 5px; /* vertical centering */
+  margin-right: 10px;
+
+  img { // logo (circular Denmark flag)
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar-header .navbar-brand { // brand ("Danebook")
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+
+  &:hover, &:focus, &:active {
+    color: white;
+  }
+}
+
+/********************************************/
+/* User Search Bar */
+/********************************************/
+
+.navbar-user-search {
+  position: relative; 
+  height: 50px;
+
+  input {
+    position: absolute; 
+    top: 50%;
+    @include transform(0,-50%); 
+    font-size: 1.3em;
+  }
+}
+
+/********************************************/
+/* Current User */
+/********************************************/
+
+.navbar-current-user {
+  line-height: 50px;
+  border: none;
+  text-align: right;
+
+  a {
+    color: white; 
+    font-size: 1.5em;
+    font-weight: bold;
+
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+/***************************************************************************************/
+/* Top Section */
+/***************************************************************************************/
+
+/********************************************/
+/* Cover Photo */
+/********************************************/
+
+.cover-photo { // cover photo container
+  width: 100%;
+  height: 400px;
+  overflow-y: auto; // scroll up/down image if large
+
+  img { // cover photo itself
+    width: 100%;
+    min-width: 768px;
+  }
+
+}
+
+/********************************************/
+/* Personal Photo */
+/********************************************/
+
+.personal-photo { // personal photo container
+  background-color: white;
+  width: 220px;
+  height: 220px;
+  position: relative; 
+  left: 15px;
+  bottom: 190px;
+  text-align: center;
+  overflow: hidden; // only show portion if image is large
+  z-index: 1; // place profile pic in front of middle nav bar
+
+  img { // personal photo itself
+    width: 100%;
+  }
+
+  @media (max-width: 992px) {
+    width: 180px; 
+    height: 180px;
+    left: 0;
+    bottom: 220px;
+  }
+}
+
+/********************************************/
+/* Profile Name */
+/********************************************/
+
+.profile-name { // name
+  position: relative; 
+
+  h1 {
+    padding: 0; 
+    margin: 0;
+    color: white;
+    position: absolute; 
+    top: -270px;
+    left: 250px; // personal photo size + margins
+    z-index: 1;
+
+    @media (max-width: 992px) {
+      font-size: 2em;
+      top: -435px;
+      left: 15px;
+    }
+  }
+}
+
+/********************************************/
+/* Middle Navigation Bar */
+/********************************************/
+
+.navbar-mid {
+  margin-top: -220px; // height of profile pic
+  background-color: white;
+  border-radius: 0px;
+}
+
+.navbar-mid .navbar-mid-buttons {
+  margin-left: 250px;
+  height: 100%;
+
+  @media (max-width: 992px) {
+    margin-left: 0;
+  }
+}
+
+.navbar-mid .navbar-profile-buttons {
+  display: inline-block;
+
+  @media (max-width: 728px) { // collapse into single col of buttons
+    display: block;
+  }
+
+  a {
+    font-size: 1.3em;
+    min-width: 140px;
+    border-radius: 0px;
+    height: 50px; 
+    padding: 10px 0;
+
+    @media (max-width: 728px) {
+      width: 100%;
+    }
+  } 
+
+  a[disabled] {
+    background-color: $gray-E; 
+  }
+}
+
+.navbar-mid .navbar-edit-button {
+  display: inline-block;
+
+  @media (min-width: 729px) { // keep to the right on large screens
+    float: right; 
+  }
+
+  @media (max-width: 728px) { // drop below profile buttons on small screens
+    display: block;
+    text-align: center; 
+  }
+
+  a {
+    font-size: 1.3em;
+    text-decoration: underline;
+    color: $main-blue;
+    height: 50px; 
+    padding: 10px 0;
+    margin-right: 15px;
+  }
+}
+
+/***************************************************************************************/
+/* Timeline */
+/***************************************************************************************/
+
+/********************************************/
+/* Timeline Items  */
+/********************************************/
+
+.timeline-item {
+  margin-bottom: 15px; 
+}
+
+.timeline-heading {
+  background-color: $gray-E;
+  border: 2px solid $gray-E;
+  text-align: center; 
+  height: 35px;
+
+  h1 {
+    padding: 4px 0; // vertical centering
+    margin: 0;
+    font-size: 1.5em;
+  } 
+}
+
+.timeline-content-container {
+  border: 2px solid $gray-E;
+  padding: 15px;  
+}
+
+.timeline-content {
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+  overflow: hidden; 
+
+  img { 
+    width: 100%;
+  } 
+}
+
+.timeline-footer {
+  text-align: center;
+  padding-top: 15px;
+
+  a {
+    color: $main-blue;
+    text-decoration: underline;   
+  }
+}
+
+.timeline-about-info {
+  border: 2px solid $gray-E;
+  padding: 10px 30px;
+
+  dl {
+    margin: 10px;
+  }
+
+  dt {
+    display: inline;
+  }
+
+  dd {
+    display: inline;
+  }
+}
+
+.timeline-friend-name {
+  color: $main-blue;
+  text-decoration: underline;   
+}
+
+.make-post-content {
+  border: 2px solid $gray-E;
+  padding: 15px;
+}
+
+.make-post-submit {
+  background-color: $gray-E;
+  text-align: right;
+  height: 45px;
+  position: relative; 
+
+  a {
+    position: absolute; 
+    top: 50%; 
+    right: 15px; 
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    width: 75px;
+    font-size: 1.1em;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 3px 0;
+    margin-right: 15px;
+  }
+}
+
+/********************************************/
+/* Timeline Posts */
+/********************************************/
+
+.timeline-post { // existing post
+  border: 2px solid $gray-E;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.poster-photo { // container of poster's photo
+  display: inline-block;
+  background-color: white;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  overflow: hidden; // only show portion if image is large
+  margin: 7px;
+
+  img { // poster's photo
+    width: 100%;
+  }
+}
+
+.poster-info { //
+  display: inline-block;
+  margin: 0; 
+  padding: 0;
+  position: absolute;
+  top: 7px; // same as .poster-photo margin
+
+  a {
+    padding: 0;
+    margin: 0; 
+    color: $main-blue;
+    text-decoration: underline;
+  }
+
+  p {
+    color: $gray-8;
+  }
+}
+
+.post-content {
+  padding: 0 15px;
+}
+
+.post-interaction {
+  background-color: $gray-E;
+  height: 40px;
+  padding: 3px 0; // vertically center
+
+  a {
+    color: $main-blue;
+    text-decoration: underline;
+  }
+
+  .delete-button {
+    float: right;
+  }
+}
+
+.post-likes { 
+  background-color: $gray-E;
+  height: 40px;
+  padding: 3px 0; // vertically center
+  padding-left: 12px;
+
+  a {
+    color: $main-blue; 
+    text-decoration: underline;
+  }
+}
+
+.post-comments {
+  border-top: 1px solid #BBB;
+  background-color: $gray-E;
+  position: relative;
+}
+
+.comment-poster-photo { // container of comment poster's photo
+  display: inline-block;
+  background-color: white;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  overflow: hidden; // only show portion if image is large
+  margin: 10px;
+  float: left;
+
+  img { // poster's photo
+    width: 100%;
+  }
+}
+
+.comment-poster-info {
+  display: inline-block;
+  margin: 0; 
+  padding: 0;
+  position: relative; 
+  top: 10px;
+
+  a {
+    color: $main-blue;
+    text-decoration: underline;
+  }
+
+  p {
+    display: inline-block;
+    color: $gray-8;
+  }
+}
+
+.comment-post-content {
+  display: inline-block;
+  padding-right: 15px; // same value as .post-content padding
+  margin-top: -50px; // shift up 
+  margin-left: 95px; // width of comment photo, with 10px as L&R margins
+}
+
+.comment-post-likes {
+  margin-left: 95px; // width of comment photo, with 10px as L&R margins
+
+  a {
+    display: inline-block;
+    color: $main-blue;
+    text-decoration: underline;
+    padding: 0;
+    padding-right: 15px;
+  }
+
+  .delete-button {
+    float: right;
+  }
+
+  p {
+    display: inline-block; 
+    color: $gray-8;
+  }
+}
+
+.comment-entry {
+  padding: 15px; 
+}
+
+.comment-submission {
+  height: 50px;
+
+  .btn-link {
+    display: inline-block;
+    color: $main-blue;
+    text-decoration: underline;
+    padding: 0;
+    margin-left: 30px;
+  }
+
+  .btn-primary {
+    background-color: $main-blue;
+    border-radius: 0px;
+    width: 75px;
+    font-size: 1.1em;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 3px 0;
+    float: right;
+    margin-right: 30px;
+  }
+
+}
+
+/***************************************************************************************/
+/* Friends */
+/***************************************************************************************/
+
+.friends-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.friends-header { 
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, vertically centers
+  }
+
+  a {
+    position: absolute;
+    top: 50%; 
+    right: 15px;
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px black;
+  }
+}
+
+.friends-container {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px; // top left-right bottom 
+}
+
+.friend {
+  border: 2px solid $gray-E; 
+  padding: 15px;
+  position: relative; 
+}
+
+.friend-photo { 
+  display: inline-block;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  overflow: hidden; 
+  float: left;
+
+  img { 
+    width: 100%;
+  }
+}
+
+.friend-info {
+  position: absolute; 
+  top: 50%; 
+  left: 130px; // friend-photo width + 15px left & right padding
+  transform: translateY(-50%);
+}
+
+.friend-name {
+  color: $main-blue; 
+  text-decoration: underline;
+  font-size: 1.3em;
+}
+
+.friend-count {
+  color: $gray-8;
+  font-size: 1.3em;
+}
+
+.unfriend-button {
+  display: inline-block; 
+  border-radius: 0;
+  background-color: $gray-BF;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 1px black;
+  position: absolute; 
+  right: 15px; 
+  top: 50%; 
+  transform: translateY(-50%);
+}
+
+/***************************************************************************************/
+/* About */
+/***************************************************************************************/
+
+.about-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.about-header {
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, to vertically center
+  }
+
+  a {
+    position: absolute;
+    top: 50%; 
+    right: 15px;
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px black;
+  }
+}
+
+.about-info {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 2em;
+  }
+
+  .basic-info {
+    margin-bottom: 45px;
+  }
+
+  dt, dd {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+
+  dt {
+    width: 30%;
+  }
+
+  dd {
+    width: 56%;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+}
+
+/***************************************************************************************/
+/* About Edit */
+/***************************************************************************************/
+
+.about-edit-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.about-header {
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, to vertically center
+  }
+}
+
+.about-info {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px 45px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: 2em;
+  }
+
+  .basic-info {
+    margin-bottom: 45px;
+  }
+
+  dt, dd {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+
+  dt {
+    width: 30%;
+  }
+
+  dd {
+    width: 56%;
+  }
+}
+
+.save-button-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 45px; 
+
+  a {
+    background-color: $main-blue;
+    width: 50%;
+    height: 60px;
+    line-height: 50px;
+    font-size: 2.2em;
+    padding: 5px 0;
+    border-radius: 0px; 
+    box-shadow: 2px 2px 1px 1px black;
+  }
+}
+
+
+
+
+/***************************************************************************************/
+/* PHOTOS */
+/***************************************************************************************/
+
+.photos-main {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 60px;
+}
+
+.photos-header { 
+  background-color: $gray-E;
+  height: 50px;
+  border: 2px solid $gray-E;
+  position: relative; 
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0 auto;
+    text-align: center; 
+    height: 50px; 
+    line-height: 50px; // same as height, vertically centers
+  }
+
+  a {
+    position: absolute;
+    top: 50%; 
+    right: 15px;
+    @include transform(0,-50%);
+    background-color: $main-blue;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 1px black;
+  }
+}
+
+.photos-container {
+  border: 2px solid $gray-E;
+  padding: 15px 45px 45px; // top left-right bottom 
+}
+
+.photo {
+  display: inline-block;
+  background-color: white;
+  text-align: center;
+  overflow: hidden; 
+
+  img { 
+    width: 100%;
+  } 
+
+  &:hover { // show date on hover
+    .photo-date { display: block; }
+  }
+}
+
+.photo-date {
+  display: none; // normally hidden, unless hovered over
+  background-color: $gray-8A; 
+  color: white; 
+  border: none; 
+  margin: 0;
+  width: 100%;
+  height: 40px; 
+  line-height: 40px; // same as height, vertically centerss
+  position: relative; 
+  margin-top: -40px; // same as height & line-height
+}
+
