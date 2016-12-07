@@ -1,9 +1,6 @@
-danebook
-========
-
 This is the Real Dane Deal.
 =======
-# Danebook
+# Danebook 
 
 [Pramod Jacob](https://github.com/domarp-j)
 
