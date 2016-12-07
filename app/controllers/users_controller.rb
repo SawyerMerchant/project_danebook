@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, :only => [:show, :edit, :update, :destroy]
   skip_before_action :require_login, :only => [:new, :create]
 
   def new
@@ -15,7 +16,6 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome!"
       redirect_to @user
     else
-      fail
       flash.now[:error] = "Could not create a new user."
       render :new
     end
@@ -33,6 +33,10 @@ class UsersController < ApplicationController
           :birthday,
           :gender
         )
+    end
+
+    def set_user 
+      @user = User.find(params[:id])
     end
 
 end
