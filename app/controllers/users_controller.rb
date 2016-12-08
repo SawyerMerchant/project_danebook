@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(strong_params)
-
+    @user.email.downcase!
     if @user.save
       sign_in(@user)
       flash[:success] = "Welcome!"
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         )
     end
 
-    def set_user 
+    def set_user
       @user = User.find(params[:id])
     end
 

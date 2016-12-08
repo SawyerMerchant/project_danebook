@@ -6,24 +6,24 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def sign_in(user) 
-      user.regenerate_auth_token 
-      cookies[:auth_token] = user.auth_token 
-      @current_user = user 
+    def sign_in(user)
+      user.regenerate_auth_token
+      cookies[:auth_token] = user.auth_token
+      @current_user = user
     end
 
     def permanent_sign_in(user)
-      user.regenerate_auth_token 
+      user.regenerate_auth_token
       cookies.permanent[:auth_token] = user.auth_token
       @current_user = user
     end
 
     def sign_out
-      @current_user = nil 
+      @current_user = nil
       cookies.delete(:auth_token)
     end
 
-    def current_user 
+    def current_user
       if cookies[:auth_token]
         @current_user = User.find_by_auth_token(cookies[:auth_token])
       end
@@ -35,10 +35,10 @@ class ApplicationController < ActionController::Base
     end
     helper_method :signed_in_user?
 
-    def require_login 
+    def require_login
       unless signed_in_user?
         flash[:error] = "Unauthorized user."
-        redirect_to login_path 
+        redirect_to login_path
       end
     end
 

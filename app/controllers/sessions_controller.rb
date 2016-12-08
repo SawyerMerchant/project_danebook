@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   skip_before_action :require_login, :only => [:new, :create]
 
   def create
-    @user = User.find_by_email(params[:email])
+    @user = User.find_by_email(params[:session][:email])
 
-    if @user && @user.authenticate(params[:password])
-      if params[:remember_me]
+    if @user && @user.authenticate(params[:session][:password])
+      if params[:session][:remember_me]
         permanent_sign_in(@user)
       else
         sign_in(@user)
@@ -21,4 +21,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
