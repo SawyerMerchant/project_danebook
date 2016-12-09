@@ -2,16 +2,20 @@ class UsersController < ApplicationController
 
   before_action :set_user, :only => [:show, :edit, :update, :destroy]
   skip_before_action :require_login, :only => [:new, :create]
+  before_action :require_current_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
     @home_page = true
   end
 
+# TODO extract password checking out into own class
+# https://www.viget.com/articles/slimming-down-your-models-and-controllers
+# extract login
   def create
     @user = User.new(user_params)
     @user.email.downcase!
-    # @profile = @user.create_profile(profile_params)
+
 
     if @user.save
       sign_in(@user)
@@ -23,8 +27,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def index
+    #timeline
+  end
 
+  def show
+    #about
   end
 
   def edit
