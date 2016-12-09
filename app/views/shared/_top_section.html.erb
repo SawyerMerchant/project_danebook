@@ -19,7 +19,7 @@
       <div class="navbar-mid-buttons">
         <div class="navbar-profile-buttons btn-group">
           <%= link_to "Timeline", timeline_path, class: "btn btn-default", role: "button" %>
-          <%= link_to "About", about_path, class: "btn btn-default", role: "button" %>
+          <%= link_to "About", user_path(current_user.id), class: "btn btn-default", role: "button" %>
           <%= link_to "Photos", photos_path, class: "btn btn-default", role: "button" %>
           <%= link_to "Friends", friends_path, class: "btn btn-default", role: "button" %>
 <!--           <a class="btn btn-default" href="timeline.html" role="button" disabled="disabled">Timeline</a>
@@ -34,4 +34,4 @@
       </div>
     </nav>
   </div>
-</section>  
+</section>

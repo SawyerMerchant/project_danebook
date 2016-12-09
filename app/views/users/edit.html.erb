@@ -1,9 +1,9 @@
 <main class="container">
-      <div class="row">
-        <!-- Cover image -->
+      <!-- <div class="row">
+        Cover image
         <section class="jumbotron" style="background-image: url(assets/images/hogwarts_small.jpg); background-size: 100%;">
         </section>
-        <!-- Middle nav links -->
+        Middle nav links
         <div class="row">
           <div class="collapse navbar-collapse">
             <nav class="navbar navbar-default  middle-nav">
@@ -22,7 +22,7 @@
 
       </div>
 
-        <!-- Profile photo -->
+        Profile photo
       <div class="row">
         <section class="col-sm-4 img-responsive profile-image">
           <img src="assets/images/harry_potter_small.jpg">
@@ -30,13 +30,13 @@
       </div>
 
 
-        <!-- Section Header -->
+        Section Header
       <div class="navbar section-bar">
         <section>
             <h3 class="navbar-header">About</h3>
             <button type="button" class="btn btn-primary navbar-right navbar-btn about-btn">Edit Profile</button>
         </section>
-      </div>
+      </div> -->
 
 
       <!-- Personal Info-->
@@ -95,36 +95,28 @@
         <!-- Left side -->
         <section class="col-sm-5">
           <table class="table col-sm-offset-1">
-          <thead>
-          <tr>
-            <th class="col-sm-6">Basic Information</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
+
+
+            <div class="col-sm-6">Basic Information</div>
+
             <%= simple_form_for @user do |user_fields| %>
               <%= user_fields.simple_fields_for :profile do |profile_fields| %>
-                <tr><td><%= profile_fields.input :birthday %></td></tr>
-                <tr><td><%= profile_fields.input :college %></td></tr>
-                <tr><td><%= profile_fields.input :hometown %></td></tr>
-                <tr><td><%= profile_fields.input :currentlylives %></td></tr>
+                <%= profile_fields.input :birthday %>
+                <%= profile_fields.input :college %>
+                <%= profile_fields.input :hometown %>
+                <%= profile_fields.input :currentlylives %>
               <% end %>
-            </tbody>
-          </table>
-          <table>
-          <thead>
-          <tr>
-            <th class="col-sm-6">Contact Information</th>
-            <th></th>
-          </tr>
-          </thead>
-              <tr><td><%= user_fields.input :email %></td>
+
+            <div class="col-sm-6">Contact Information</div>
+
+            <%= user_fields.input :email %>
             <%= user_fields.simple_fields_for :profile do |profile_fields| %>
-              <tr><td><%= profile_fields.input :telephone %></td>
+              <%= profile_fields.input :telephone %>
+              <%= profile_fields.input :words %>
+              <%= profile_fields.input :about %>
+
             <% end %>
-              </tbody>
-            </table>
-              <tr><td><%= user_fields.button :submit %></tr></td>
+              <%= user_fields.button :submit %>
             <% end %>
 
 

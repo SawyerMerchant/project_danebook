@@ -20,7 +20,7 @@
       </div>
       <div class="col-xs-2 col-md-2">
         <div class="navbar-current-user">
-          <%= link_to "Harry", edit_user_path(current_user) %>
+          <%= link_to current_user.profile.first_name, edit_user_path(current_user) %>
           <!-- <a href="about.html">Harry</a> -->
         </div>
       </div>

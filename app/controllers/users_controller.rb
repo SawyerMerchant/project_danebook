@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    #timeline
+    @users = User.all
   end
 
   def show
@@ -62,6 +62,8 @@ class UsersController < ApplicationController
           :birthday,
           :gender,
           :words,
+          :about,
+          :telephone,
           :college,
           :currentlylives,
           :hometown]
