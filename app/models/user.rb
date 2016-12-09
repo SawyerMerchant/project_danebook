@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+  default_scope {includes :profile}
   before_create :generate_token
 
   has_one :profile, inverse_of: :user

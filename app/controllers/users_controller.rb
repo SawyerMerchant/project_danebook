@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.profile = Profile.new
     @home_page = true
   end
 
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.email.downcase!
 
-
     if @user.save
       sign_in(@user)
       flash[:success] = "Welcome!"
@@ -24,6 +24,16 @@ class UsersController < ApplicationController
     else
       flash.now[:error] = "Could not create a new user."
       render :new
+    end
+  end
+
+  def update
+    if current_user.update(user_params)
+      flash[:success] = "You updated your profile"
+      redirect_to @user
+    else
+      flash.now[:error] = "Could not update your profile"
+      render :edit
     end
   end
 
@@ -46,22 +56,28 @@ class UsersController < ApplicationController
         :password,
         :password_confirmation,
         :profile_attributes =>
-        [:id,
-        :first_name,
-        :last_name,
-        :birthday,
-        :gender]
+          [:id,
+          :first_name,
+          :last_name,
+          :birthday,
+          :gender,
+          :words,
+          :college,
+          :currentlylives,
+          :hometown]
         )
     end
 
-    def profile_params
-      params.require(:profile).permit(
-        :first_name,
-        :last_name,
-        :birthday,
-        :gender
-        )
-    end
+    # def profile_params
+    #   params.require(:profile).permit(
+    #     :first_name,
+    #     :last_name,
+    #     :birthday,
+    #     :gender
+    #     )
+    # end
+
+    # eager loading w/ includes
 
     def set_user
       @user = User.find(params[:id])

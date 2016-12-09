@@ -14,41 +14,41 @@
             <h2>Basic Information</h2>
             <dl>
               <dt>Birthday:</dt>
-              <dd><%= current_user.profile.birthday %></dd>
+              <dd><%= @user.profile.birthday %></dd>
             </dl>
             <dl>
               <dt>College:</dt>
-              <dd><%= current_user.profile.college %></dd>
+              <dd><%= @user.profile.college %></dd>
             </dl>
             <dl>
               <dt>Hometown:</dt>
-              <dd><%= current_user.profile.hometown %></dd>
+              <dd><%= @user.profile.hometown %></dd>
             </dl>
             <dl>
               <dt>Currently Lives:</dt>
-              <dd><%= current_user.profile.currentlylives %></dd>
+              <dd><%= @user.profile.currentlylives %></dd>
             </dl>
           </section>
           <section class="contact-info">
             <h2>Contact Information</h2>
             <dl>
               <dt>Email:</dt>
-              <dd><%= current_user.email %></dd>
+              <dd><%= @user.email %></dd>
             </dl>
             <dl>
               <dt>Telephone:</dt>
-              <dd><%= current_user.profile.telephone %></dd>
+              <dd><%= @user.profile.telephone %></dd>
             </dl>
           </section>
         </div>
         <div class="col-xs-12 col-md-6">
           <section class="words-to-live-by">
             <h2>Words to Live By</h2>
-            <p><%= current_user.profile.words %></p>
+            <p><%= @user.profile.words %></p>
           </section>
           <section class="about-me">
             <h2>About Me</h2>
-            <p><%= current_user.profile.about %></p>
+            <p><%= @user.profile.about %></p>
           </section>
         </div>
       </div>

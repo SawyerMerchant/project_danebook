@@ -242,7 +242,7 @@
       </div>
     </form>  -->
     <%= form_for @user do |user_field| %>
-      <%= user_field.fields_for :profile_attributes do |profile_field| %>
+      <%= user_field.fields_for :profile do |profile_field| %>
 
         <%= profile_field.text_field :first_name, placeholder: "First Name" %>
 
@@ -256,7 +256,7 @@
 
       <%= user_field.password_field :password_confirmation, placeholder: "Confirm Password" %>
 
-      <%= user_field.fields_for :profile_attributes do |profile_field| %>
+      <%= user_field.fields_for :profile do |profile_field| %>
         <%= profile_field.label :birthday %>
         <%= profile_field.date_select :birthday, start_year: 1900 %>
 

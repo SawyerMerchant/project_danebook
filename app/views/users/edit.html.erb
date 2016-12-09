@@ -43,7 +43,7 @@
       <div class="row section-container">
 
         <!-- Left side -->
-        <section class="col-sm-5">
+        <!-- <section class="col-sm-5">
           <table class="table col-sm-offset-1">
           <thead>
           <tr>
@@ -71,7 +71,7 @@
           </tbody>
           </table>
 
-          <!-- Contact Information -->
+          Contact Information
           <table class="table col-sm-offset-1">
             <thead>
               <tr>
@@ -90,7 +90,47 @@
               </tr>
             </tbody>
           </table>
-        </section>
+        </section> -->
+
+        <!-- Left side -->
+        <section class="col-sm-5">
+          <table class="table col-sm-offset-1">
+          <thead>
+          <tr>
+            <th class="col-sm-6">Basic Information</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <%= simple_form_for @user do |user_fields| %>
+              <%= user_fields.simple_fields_for :profile do |profile_fields| %>
+                <tr><td><%= profile_fields.input :birthday %></td></tr>
+                <tr><td><%= profile_fields.input :college %></td></tr>
+                <tr><td><%= profile_fields.input :hometown %></td></tr>
+                <tr><td><%= profile_fields.input :currentlylives %></td></tr>
+              <% end %>
+            </tbody>
+          </table>
+          <table>
+          <thead>
+          <tr>
+            <th class="col-sm-6">Contact Information</th>
+            <th></th>
+          </tr>
+          </thead>
+              <tr><td><%= user_fields.input :email %></td>
+            <%= user_fields.simple_fields_for :profile do |profile_fields| %>
+              <tr><td><%= profile_fields.input :telephone %></td>
+            <% end %>
+              </tbody>
+            </table>
+              <tr><td><%= user_fields.button :submit %></tr></td>
+            <% end %>
+
+
+
+
+
 
         <!-- Right side -->
         <section class="pull-right col-sm-6">
