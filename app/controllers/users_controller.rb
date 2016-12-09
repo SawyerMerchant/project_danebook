@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(strong_params)
+    @user = User.new(user_params)
     @user.email.downcase!
+    # @profile = @user.create_profile(profile_params)
+
     if @user.save
       sign_in(@user)
       flash[:success] = "Welcome!"
@@ -21,17 +23,35 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
+  def edit
+  end
+
   private
 
-    def strong_params
+    def user_params
       params.require(:user).permit(
-          :first_name,
-          :last_name,
-          :email,
-          :password,
-          :password_confirmation,
-          :birthday,
-          :gender
+        :email,
+        :password,
+        :password_confirmation,
+        :profile_attributes =>
+        [:id,
+        :first_name,
+        :last_name,
+        :birthday,
+        :gender]
+        )
+    end
+
+    def profile_params
+      params.require(:profile).permit(
+        :first_name,
+        :last_name,
+        :birthday,
+        :gender
         )
     end
 

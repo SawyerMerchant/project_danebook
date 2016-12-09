@@ -1,0 +1,30 @@
+<h1>Sign Up</h1>
+<div class="row">
+  <%= form_for @user do |user_field| %>
+    <div class="col-xs-6 form-group">
+      <%= user_field.text_field :first_name, placeholder: "First Name", :html => {:class =>"form-control"} %>
+    </div>
+    <div class="col-xs-6 form-group">
+      <%= user_field.text_field :last_name, placeholder: "Last Name", :html => {:class =>"form-control"} %>
+    </div>
+    <div class="col-xs-6 form-group">
+      <%= user_field.email_field :email, placeholder: "Email", :html => {:class =>"form-control"} %>
+    </div>
+    <div class="col-xs-6 form-group">
+      <%= user_field.password_field :password, placeholder: "Password", :html => {:class =>"form-control"} %>
+    </div>
+    <div class="col-xs-6 form-group">
+      <%= user_field.password_field :password_confirmation, placeholder: "Confirm Password", :html => {:class =>"form-control"} %>
+    </div>
+    <div class="col-xs-6 form-group">
+      <%= user_field.label :birthday %>
+      <div class="form-inline" id="birthday">
+        <%= user_field.date_select :birthday, start_year: 1900 %>
+      </div>
+    </div>
+    <%= user_field.radio_button :gender, "m" %>Male
+    <%= user_field.radio_button :gender, "f" %>Female
+
+    <%= user_field.submit %>
+  <% end %>
+</div>

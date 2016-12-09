@@ -242,9 +242,13 @@
       </div>
     </form>  -->
     <%= form_for @user do |user_field| %>
-      <%= user_field.text_field :first_name, placeholder: "First Name" %>
+      <%= user_field.fields_for :profile_attributes do |profile_field| %>
 
-      <%= user_field.text_field :last_name, placeholder: "Last Name" %>
+        <%= profile_field.text_field :first_name, placeholder: "First Name" %>
+
+        <%= profile_field.text_field :last_name, placeholder: "Last Name" %>
+
+      <% end %>
 
       <%= user_field.email_field :email, placeholder: "Email" %>
 
@@ -252,11 +256,15 @@
 
       <%= user_field.password_field :password_confirmation, placeholder: "Confirm Password" %>
 
-      <%= user_field.label :birthday %>
-      <%= user_field.date_select :birthday, start_year: 1900 %>
+      <%= user_field.fields_for :profile_attributes do |profile_field| %>
+        <%= profile_field.label :birthday %>
+        <%= profile_field.date_select :birthday, start_year: 1900 %>
 
-      <%= user_field.radio_button :gender, "m" %>Male
-      <%= user_field.radio_button :gender, "f" %>Female
+        <%= profile_field.radio_button :gender, "m" %>Male
+        <%= profile_field.radio_button :gender, "f" %>Female
+        <%= profile_field.radio_button :gender, "o" %>Other
+
+      <% end %>
 
       <%= user_field.submit %>
     <% end %>

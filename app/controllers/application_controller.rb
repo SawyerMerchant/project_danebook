@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     def sign_out
       @current_user = nil
       cookies.delete(:auth_token)
+      redirect_to new_user_path
     end
 
     def current_user

@@ -2,11 +2,11 @@ class User < ApplicationRecord
 
   before_create :generate_token
 
+  has_one :profile, inverse_of: :user
+  accepts_nested_attributes_for :profile
+
   has_secure_password
-
   validates :password, length: {minimum: 8}, allow_nil: true
-
-  validates :first_name, :last_name, :email, presence: true
 
   def generate_token
     begin

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root 'users#new'
-  resources :users, :only => [:new, :create, :show]
+  resources :users
+    resource :profile
+
   resource :session, :only => [:new, :create, :destroy]
 
   get '/login' => 'sessions#new'

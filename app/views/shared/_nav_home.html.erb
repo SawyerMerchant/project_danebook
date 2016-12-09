@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default" id="navhome">
+  <div class="container">
+    <!--Toggle when mobile -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Danebook</a>
+    </div>
+    <div class="form-group navbar-right">
+      <%= form_tag session_path do %>
+        <%= label_tag do %>
+          Email
+          <%= text_field_tag "session[email]", nil, class: "form_text" %>
+        <% end %>
+
+        <%= label_tag do %>
+          Password
+          <%= password_field_tag "session[password]", nil, class: "form_text" %>
+        <% end %>
+
+        <%= label_tag do %>
+          Remember me?
+          <%= check_box_tag :remember_me %>
+        <% end %>
+
+        <%= submit_tag "Log in", :html => {class: "btn btn-info"} %>
+      <% end %>
+      <!-- <table>
+        <tr>
+          <th>
+            <label>Email:</label>
+          </th>
+          <th>
+            <label>Password:</label>
+          </th>
+        </tr>
+        <tr>
+            <td>
+            <input type="email" class="form-control input-sm" id="email">
+          </td>
+            <td>
+            <input type="password" class="form-control input-sm" id="password">
+          </td>
+          <td>
+            <button type="submit" class="btn btn-info">Log In</button>
+          </td>
+        </tr>
+      </table> -->
+    </div>
+  </div>
+  <!-- Collect form for toggling -->
+  <!--<div class="collapse navbar-collapse">-->
+  <!--  <ul class="nav navbar-right">-->
+  <!--    <form class="navbar-form">-->
+  <!--      <div class="form-group">-->
+  <!--        <label for="password">Password:</label>-->
+  <!--        <input type="text" class="form-control" id="password">-->
+  <!--      </div>-->
+  <!--      <button type="submit" class="btn btn-info">Log In</button>-->
+  <!--    </form>-->
+  <!--  </ul>-->
+  <!--</div>-->
+</nav>

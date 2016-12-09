@@ -13,11 +13,18 @@ class SessionsController < ApplicationController
       end
 
       flash[:success] = "You've successfully signed in."
+
+      #edirect_to user_path(current_user)#edit_profile_path #if @user.profile.updated == false  ##TODO send first login to update profile
+
       redirect_to @user
     else
       flash[:error] = "We couldn't sign you in."
       redirect_to root_path
     end
+  end
+
+  def destroy
+    sign_out
   end
 
 end
