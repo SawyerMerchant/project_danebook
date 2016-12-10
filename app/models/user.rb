@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, length: {minimum: 8}, allow_nil: true
 
+  has_many :posts
+
   def generate_token
     begin
       self.auth_token = SecureRandom.urlsafe_base64

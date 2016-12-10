@@ -32,6 +32,7 @@ class UsersController < ApplicationController
       flash[:success] = "You updated your profile"
       redirect_to @user
     else
+      puts "PROFILE ERROR"
       flash.now[:error] = "Could not update your profile"
       render :edit
     end
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    # @profile = @user.profile
   end
 
   private

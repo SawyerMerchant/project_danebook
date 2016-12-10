@@ -1,0 +1,4 @@
+<%= simple_form_for [current_user, @post] do |f| %>
+  <%= f.input :body, placeholder: 'Tell the world something...', label: false %>
+  <%= f.submit "post" %>
+<% end %>

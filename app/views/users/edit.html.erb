@@ -1,4 +1,4 @@
-<main class="container">
+<!-- <main class="container"> -->
       <!-- <div class="row">
         Cover image
         <section class="jumbotron" style="background-image: url(assets/images/hogwarts_small.jpg); background-size: 100%;">
@@ -40,7 +40,7 @@
 
 
       <!-- Personal Info-->
-      <div class="row section-container">
+      <!-- <div class="row section-container"> -->
 
         <!-- Left side -->
         <!-- <section class="col-sm-5">
@@ -93,11 +93,11 @@
         </section> -->
 
         <!-- Left side -->
-        <section class="col-sm-5">
-          <table class="table col-sm-offset-1">
+        <!-- <div class="col-sm-5">
+          <div class="table col-sm-offset-1">
 
 
-            <div class="col-sm-6">Basic Information</div>
+            <div class="col-sm-6">Basic Information</div> -->
 
             <%= simple_form_for @user do |user_fields| %>
               <%= user_fields.simple_fields_for :profile do |profile_fields| %>
@@ -106,8 +106,8 @@
                 <%= profile_fields.input :hometown %>
                 <%= profile_fields.input :currentlylives %>
               <% end %>
-
-            <div class="col-sm-6">Contact Information</div>
+            <!-- </div>
+            <div class="col-sm-6">Contact Information</div> -->
 
             <%= user_fields.input :email %>
             <%= user_fields.simple_fields_for :profile do |profile_fields| %>
@@ -118,14 +118,14 @@
             <% end %>
               <%= user_fields.button :submit %>
             <% end %>
-
-
-
+            <!-- </div>
+          </div>
+        </div> -->
 
 
 
         <!-- Right side -->
-        <section class="pull-right col-sm-6">
+        <!-- <section class="pull-right col-sm-6">
           <h3>Words to Live by</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -138,10 +138,12 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </section>
-      </div>
-    <div class="row bottom-spacer">
+      </div> -->
+    <!-- <div class="row bottom-spacer">
     <br>
     </div>
     </main>
   </body>
-</html>
+</html> -->
+
+<!-- http://stackoverflow.com/questions/19365809/form-submit-button-only-works-after-reload -->

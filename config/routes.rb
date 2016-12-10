@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   root 'users#new'
-  resources :users
-    resource :profile
+  resources :users do
+    resource  :profile
+    resources :posts
+
+  end
 
   resource :session, :only => [:new, :create, :destroy]
 
