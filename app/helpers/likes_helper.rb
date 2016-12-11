@@ -7,6 +7,10 @@ module LikesHelper
       link_to "Like", like_path(post), method: :put, class: "btn btn-link like-button"
     end
   end
+
+  def like_count(post)
+    post.user_likes.count
+  end
 end
 
 
