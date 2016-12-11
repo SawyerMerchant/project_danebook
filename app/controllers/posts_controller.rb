@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
 
   # before_action :require_current_user, only: [:new, :create, :delete]
-  before_action :confirm_current_user
+  before_action :require_ownership, only: [:new, :create, :delete, :update]
 
   def index
     @user = User.find(params[:user_id])
     @post = Post.new
-    @posts = current_user.posts.order("created_at desc")
+    @posts = @user.posts.order("created_at desc")
   end
 
   def new
@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    fail
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "You created a post"
@@ -28,14 +27,24 @@ class PostsController < ApplicationController
   def show
   end
 
-  def delete
-
+  def destroy
+    #can still delete other users's posts
+    Post.find_by_id(params[:id]).destroy
+    redirect_to user_posts_path
   end
 
   private
 
     def post_params
       params.require(:post).permit(:body)
+    end
+
+    def require_ownership
+      unless Post.find_by_id(params[:id]).user == current_user
+      # unless params[:user_id] == current_user.id.to_s
+        flash[:error] = "You can't do that!"
+        redirect_to user_posts_path
+      end
     end
 
 end

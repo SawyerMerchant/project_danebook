@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   end
 
+  resources :likes
+
   resource :session, :only => [:new, :create, :destroy]
 
   get '/login' => 'sessions#new'

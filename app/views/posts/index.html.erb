@@ -11,19 +11,19 @@
           <div class="timeline-about-info">
             <dl>
               <dt>Born on:</dt>
-              <dd>July 31, 1980</dd>
+              <dd><%= @user.profile.birthday %></dd>
             </dl>
             <dl>
               <dt>Went to school at:</dt>
-              <dd>Hogwarts College</dd>
+              <dd><%= @user.profile.college %></dd>
             </dl>
             <dl>
               <dt>Hometown:</dt>
-              <dd>Godrick's Hollow, England</dd>
+              <dd><%= @user.profile.hometown %></dd>
             </dl>
             <dl>
               <dt>Currently Lives:</dt>
-              <dd>Godrick's Hollow, England</dd>
+              <dd><%= @user.profile.currentlylives %></dd>
             </dl>
           </div>
         </div>
@@ -170,9 +170,12 @@
             </p>
           </div>
           <div class="post-interaction">
-            <a class="btn btn-link like-button" href="#" role="button">Like</a>
+            <!-- <a class="btn btn-link like-button" href="#" role="button">Like</a> -->
+            <%= link_to "Like", like_path(post), method: :put, class: "btn btn-link like-button" %>
             <a class="btn btn-link comment-button" href="#" role="button">Comment</a>
-            <a class="btn btn-link delete-button" href="#" role="button">Delete</a>
+            <!-- <a class="btn btn-link delete-button" href="#" role="button">Delete</a> -->
+            <%#= link_to "Delete", user_post_path(current_user, post), class: "btn btn-link delete-button", method: :delete %>
+            <%= delete_post_link(post) if post.user == current_user%>
           </div>
         </article>
         <% end %>

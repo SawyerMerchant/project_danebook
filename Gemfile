@@ -38,6 +38,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'jazz_fingers'
   gem 'binding_of_caller'
+  gem 'faker'
 end
 
 group :development do
