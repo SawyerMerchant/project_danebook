@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :likes
+  resources :likes#, only: [:update, :delete]
 
   resource :session, :only => [:new, :create, :destroy]
 

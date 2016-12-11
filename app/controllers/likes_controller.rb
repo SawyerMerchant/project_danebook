@@ -8,6 +8,12 @@ class LikesController < ApplicationController
     redirect_to(:back)
   end
 
+  def destroy
+    @like = Like.find_by_id(params[:id])
+    @like.delete
+    redirect_to(:back)
+  end
+
 
   private
 

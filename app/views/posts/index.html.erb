@@ -171,7 +171,7 @@
           </div>
           <div class="post-interaction">
             <!-- <a class="btn btn-link like-button" href="#" role="button">Like</a> -->
-            <%= link_to "Like", like_path(post), method: :put, class: "btn btn-link like-button" %>
+            <%= like_links(post) %>
             <a class="btn btn-link comment-button" href="#" role="button">Comment</a>
             <!-- <a class="btn btn-link delete-button" href="#" role="button">Delete</a> -->
             <%#= link_to "Delete", user_post_path(current_user, post), class: "btn btn-link delete-button", method: :delete %>
