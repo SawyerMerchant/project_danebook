@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 
+  has_many :comments, dependent: :destroy
+
   def generate_token
     begin
       self.auth_token = SecureRandom.urlsafe_base64

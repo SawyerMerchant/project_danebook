@@ -7,6 +7,14 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :posts do
+    concern :commentable
+  end
+
+  resources :posts do
+    resources :comments
+  end
+
   resources :likes#, only: [:update, :delete]
 
   resource :session, :only => [:new, :create, :destroy]

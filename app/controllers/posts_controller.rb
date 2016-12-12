@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
 
   # before_action :require_current_user, only: [:new, :create, :delete]
-  before_action :require_ownership, only: [:new, :create, :delete, :update]
+  # before_action :require_ownership, only: [:new, :create, :delete, :update]
 
   def index
     @user = User.find(params[:user_id])
     @post = Post.new
     @posts = @user.posts.order("created_at desc")
+    @comment = Comment.new
   end
 
   def new
