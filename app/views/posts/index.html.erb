@@ -170,14 +170,15 @@
             </p>
           </div>
           <div class="post-interaction">
-            <!-- <a class="btn btn-link like-button" href="#" role="button">Like</a> -->
-            <%= like_links(post) %>
-            <a class="btn btn-link comment-button" href="#" role="button">Comment</a>
-            <%= like_count(post) %>
-            <!-- <a class="btn btn-link delete-button" href="#" role="button">Delete</a> -->
-            <%#= link_to "Delete", user_post_path(current_user, post), class: "btn btn-link delete-button", method: :delete %>
-            <%= delete_post_link(post) if post.user == current_user%>
-          </div>
+              <!-- <a class="btn btn-link like-button" href="#" role="button">Like</a> -->
+              <%= like_links(post) %>
+              <a class="btn btn-link comment-button" href="#" role="button">Comment</a>
+              <%= like_count(post) %>
+              <!-- <a class="btn btn-link delete-button" href="#" role="button">Delete</a> -->
+              <%#= link_to "Delete", user_post_path(current_user, post), class: "btn btn-link delete-button", method: :delete %>
+              <%= delete_post_link(post) if post.user == current_user%>
+            </div>
+            <%= like_by(post) %>
         </article>
         <% end %>
                 <!--Existing Post 3 (Liked & Comments)-->
