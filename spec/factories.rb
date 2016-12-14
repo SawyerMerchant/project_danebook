@@ -1,10 +1,18 @@
 FactoryGirl.define do
-  factory :friends_user do
-    
-  end
+
   factory :user do
     sequence(:email) { |n| "foouser#{n}@email.com"}
     password "password"
+    # after(:create) do |user|
+    #   create(:profile, user: user)
+    # end
+
+    trait :with_profile do
+      # after(:create) do |user|
+      #   create(:profile, user: user)
+      # end
+      # association :profile, factory: :profile
+    end
   end
 
   factory :profile do
@@ -18,6 +26,7 @@ FactoryGirl.define do
     last_name "Fergeson"
     birthday (Date.today - 20.years)
     gender "ale"
+    user
   end
 
   factory :post do

@@ -22,7 +22,7 @@
       </div>
       <button type="submit" formaction="about.html" class="btn btn-default">Log In</button>
     </form> -->
-    <%= form_tag session_path do %>
+    <%= form_tag session_path, class: 'login' do %>
       <%= label_tag do %>
         Email
         <%= text_field_tag "session[email]" %>
