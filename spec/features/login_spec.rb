@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature "Login" do
   before do
 

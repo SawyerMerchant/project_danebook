@@ -47,7 +47,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @profile = @user.profile
+  end
+
+  def destroy
+    @user.destroy
+    flash.now[:success] = "You deleted your profile"
+    redirect_to root_path
   end
 
   private

@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :user do
+  factory :user, aliases: [:author] do
     sequence(:email) { |n| "foouser#{n}@email.com"}
     password "password"
     # after(:create) do |user|
@@ -31,7 +31,8 @@ FactoryGirl.define do
 
   factory :post do
     body  "Foo Paragraph"
-    association :author, factory: :user
+    # association :author, factory: :user
+    user
   end
 
 end

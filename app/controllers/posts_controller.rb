@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   # before_action :require_current_user, only: [:new, :create, :delete]
   # before_action :require_ownership, only: [:new, :create, :delete, :update]
 
@@ -18,10 +17,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "You created a post"
-      redirect_to user_posts_path
+      redirect_to user_posts_path(current_user)
     else
       flash.now[:error] = "Post failed to save"
-      render user_posts_path
+      render user_posts_path(current_user)
     end
   end
 
