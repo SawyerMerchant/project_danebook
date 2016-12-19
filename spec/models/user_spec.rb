@@ -31,6 +31,7 @@ describe User do
   it { should have_many(:friends)}
 
 
+
   it "skips password validation if nil on update" do
     user.save
     user.update_attributes(email: "merf@derf.org") #happy

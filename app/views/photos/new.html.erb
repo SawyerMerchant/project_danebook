@@ -1,0 +1,5 @@
+<h1>Add a photo</h1>
+<%= simple_form_for [current_user, @photo], url: user_photos_path do |f|  %>
+  <%= f.input :photo_file, as: :file %>
+  <%= f.button :submit %>
+<% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     resource  :profile
     resources :posts
+    resources :photos
 
   end
 

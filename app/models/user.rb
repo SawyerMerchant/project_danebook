@@ -21,6 +21,10 @@ class User < ApplicationRecord
   has_many :friends_users
   has_many :friends, through: :friends_users, source: :user
 
+  has_many :photos, dependent: :destroy
+
+
+
   def regenerate_auth_token
     self.auth_token = nil
     generate_token

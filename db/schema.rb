@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213004809) do
+ActiveRecord::Schema.define(version: 20161215233533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20161213004809) do
     t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true, using: :btree
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "photo_file_file_name"
+    t.string   "photo_file_content_type"
+    t.integer  "photo_file_file_size"
+    t.datetime "photo_file_updated_at"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text     "body"
     t.integer  "user_id"
@@ -55,14 +65,18 @@ ActiveRecord::Schema.define(version: 20161213004809) do
     t.string   "telephone"
     t.text     "words"
     t.text     "about"
-    t.string   "first_name",                     null: false
-    t.string   "last_name",                      null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
     t.date     "birthday"
     t.string   "gender"
     t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.boolean  "updated",        default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.boolean  "updated",             default: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

@@ -101,6 +101,7 @@
 
             <%= simple_form_for @user do |user_fields| %>
               <%= user_fields.simple_fields_for :profile do |profile_fields| %>
+                <%= profile_fields.input :avatar, as: :file %>
                 <%= profile_fields.input :birthday %>
                 <%= profile_fields.input :college %>
                 <%= profile_fields.input :hometown %>

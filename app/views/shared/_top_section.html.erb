@@ -8,7 +8,7 @@
     </div>
     <!--Profile Photo-->
     <div class="personal-photo">
-      <img src="assets/harry_potter_small.jpg">
+      <%= image_tag @user.profile.avatar.url(:medium) %>
     </div>
     <!--Name-->
     <div class="profile-name">
