@@ -1,0 +1,81 @@
+<main class="friends-main">
+  <div class="container">
+    <!--Header-->
+    <div class="friends-header">
+      <h1>Friends</h1>
+    </div>
+    <!--Friends-->
+    <div class="friends-container">
+      <div class="row">
+        <% @friends.each do |friend| %>
+          <div class="friend col-xs-12 col-md-6">
+            <a class="friend-photo" href="#">
+              <img src="assets/user_silhouette_generic.gif">
+            </a>
+            <div class="friend-info">
+              <!-- <a class="friend-name" href="#">Hermione Granger</a> -->
+              <%= link_to friend.profile.full_name, user_path(friend), class: "friend-name" %>
+              <p class="friend-count">432 Friends</p>
+            </div>
+            <!-- <a class="btn btn-default unfriend-button" href="#" role="button">Unfriend Me</a> -->
+            <%= link_to "Unfriend Me", friends_users_path(user_id: friend.id), method: :delete, class: "btn btn-default unfriend-button" %>
+          </div>
+        <% end %>
+        <!-- <div class="friend col-xs-12 col-md-6">
+          <a class="friend-photo" href="#">
+            <img src="assets/user_silhouette_generic.gif">
+          </a>
+          <div class="friend-info">
+            <a class="friend-name" href="#">Hermione Granger</a>
+            <p class="friend-count">432 Friends</p>
+          </div>
+          <a class="btn btn-default unfriend-button" href="#" role="button">Unfriend Me</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="friend col-xs-12 col-md-6">
+          <a class="friend-photo" href="#">
+            <img src="assets/user_silhouette_generic.gif">
+          </a>
+          <div class="friend-info">
+            <a class="friend-name" href="#">Hermione Granger</a>
+            <p class="friend-count">432 Friends</p>
+          </div>
+          <a class="btn btn-default unfriend-button" href="#" role="button">Unfriend Me</a>
+        </div>
+        <div class="friend col-xs-12 col-md-6">
+          <a class="friend-photo" href="#">
+            <img src="assets/user_silhouette_generic.gif">
+          </a>
+          <div class="friend-info">
+            <a class="friend-name" href="#">Hermione Granger</a>
+            <p class="friend-count">432 Friends</p>
+          </div>
+          <a class="btn btn-default unfriend-button" href="#" role="button">Unfriend Me</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="friend col-xs-12 col-md-6">
+          <a class="friend-photo" href="#">
+            <img src="assets/user_silhouette_generic.gif">
+          </a>
+          <div class="friend-info">
+            <a class="friend-name" href="#">Hermione Granger</a>
+            <p class="friend-count">432 Friends</p>
+          </div>
+          <a class="btn btn-default unfriend-button" href="#" role="button">Unfriend Me</a>
+        </div>
+        <div class="friend col-xs-12 col-md-6">
+          <a class="friend-photo" href="#">
+            <img src="assets/user_silhouette_generic.gif">
+          </a>
+          <div class="friend-info">
+            <a class="friend-name" href="#">Hermione Granger</a>
+            <p class="friend-count">432 Friends</p>
+          </div>
+          <a class="btn btn-default unfriend-button" href="#" role="button">Unfriend Me</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</main>

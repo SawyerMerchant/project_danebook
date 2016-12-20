@@ -19,7 +19,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   has_many :friends_users
-  has_many :friends, through: :friends_users, source: :user
+  has_many :friends, through: :friends_users
 
   has_many :photos, dependent: :destroy
 

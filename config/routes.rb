@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource  :profile
     resources :posts
     resources :photos
+    resources :friends_users, only: [:index]
 
   end
 
@@ -17,8 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :likes#, only: [:update, :delete]
-
-  resource :session, :only => [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
+  resource :friends_users, only: [:create, :destroy]
 
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'

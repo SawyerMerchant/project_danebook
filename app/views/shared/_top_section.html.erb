@@ -19,16 +19,16 @@
       <div class="navbar-mid-buttons">
         <div class="navbar-profile-buttons btn-group">
           <%= link_to "Timeline", user_posts_path(@user), class: "btn btn-default", role: "button" %>
-          <%= link_to "About", user_path(current_user.id), class: "btn btn-default", role: "button" %>
-          <%= link_to "Photos", "#", class: "btn btn-default", role: "button" %>
-          <%= link_to "Friends", "#", class: "btn btn-default", role: "button" %>
+          <%= link_to "About", user_path(@user), class: "btn btn-default", role: "button" %>
+          <%= link_to "Photos", user_photos_path(@user), class: "btn btn-default", role: "button" %>
+          <%= link_to "Friends", user_friends_users_path(@user), class: "btn btn-default", role: "button" %>
 <!--           <a class="btn btn-default" href="timeline.html" role="button" disabled="disabled">Timeline</a>
           <a class="btn btn-default" href="about.html" role="button">About</a>
           <a class="btn btn-default" href="photos.html" role="button">Photos (<span id="photo-count">123</span>)</a>
           <a class="btn btn-default" href="friends.html" role="button">Friends (<span id="friend-count">542</span>)</a> -->
         </div>
         <div class="navbar-edit-button">
-          <%= edit_link %>
+          <%= edit_or_friend_link %>
           <%#= link_to "Edit Profile", about_edit_path, class: "btn btn-link", role: "button" %>
           <!-- <a class="btn btn-link" href="about_edit.html" role="button">Edit Profile</a> -->
         </div>
