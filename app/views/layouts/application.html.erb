@@ -24,17 +24,19 @@
   </head>
 
   <body>
-    <% if @home_page %>
-        <!--Home Nav Bar-->
-        <%= render "shared/navbar_home" %>
-    <% else %>
-        <!--Main Nav Bar-->
-        <%= render "shared/navbar" %>
-        <!--Main Nav Bar-->
-        <%= render "shared/top_section" %>
-    <% end %>
-    <%= yield %>
-    <%= render 'shared/flash_messages' if !flash.empty? %>
+    <div class="container">
+      <% if @home_page %>
+          <!--Home Nav Bar-->
+          <%= render "shared/navbar_home" %>
+      <% else %>
+          <!--Main Nav Bar-->
+          <%= render "shared/navbar" %>
+          <!--Main Nav Bar-->
+          <%= render "shared/top_section" %>
+      <% end %>
+      <%= render 'shared/flash_messages' if !flash.empty? %>
+      <%= yield %>
+    </div>
   </body>
 
 </html>
